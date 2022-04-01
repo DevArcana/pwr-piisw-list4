@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@SQLDelete(sql = "update server set is_active = false where id=?")
+@SQLDelete(sql = "update server set is_active = false, version = ? where id=?")
 @Where(clause = "is_active=true")
 public class Server {
 

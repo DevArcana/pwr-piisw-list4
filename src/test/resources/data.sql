@@ -23,8 +23,8 @@ insert into request_event(analysis_required, duration, server_id, thread_id, tim
 insert into request_event(analysis_required, duration, server_id, thread_id, time, user_id, id, method) values (false, 320, 	2, '8', 	PARSEDATETIME('2017-04-09 04:24:06', 'yyyy-MM-dd HH:mm:ss'), 'Pawel', 	19	, 'POST');
 insert into request_event(analysis_required, duration, server_id, thread_id, time, user_id, id, method) values (false, 320, 	2, '8', 	PARSEDATETIME('2018-04-09 03:25:06', 'yyyy-MM-dd HH:mm:ss'), 'Adam', 	20	, 'POST');
 
-insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query) values (false, 30, 		2, '2', 	PARSEDATETIME('2018-02-03 03:18:06', 'yyyy-MM-dd HH:mm:ss'), 'Adam', 	21,    'SELECT 1 FROM DUAL');
-insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query) values (false, 550, 		2, '3', 	PARSEDATETIME('2018-02-03 13:08:06', 'yyyy-MM-dd HH:mm:ss'), 'Adam', 	22,    'SELECT 1 FROM DUAL');
+insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query, description) values (false, 30, 		2, '2', 	PARSEDATETIME('2018-02-03 03:18:06', 'yyyy-MM-dd HH:mm:ss'), 'Adam', 	21,    'SELECT 1 FROM DUAL', 'description of event 21');
+insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query, description) values (false, 550, 		2, '3', 	PARSEDATETIME('2018-02-03 13:08:06', 'yyyy-MM-dd HH:mm:ss'), 'Adam', 	22,    'SELECT 1 FROM DUAL', 'description of event 22');
 insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query) values (false, 210, 		2, '3', 	PARSEDATETIME('2018-02-03 22:28:06', 'yyyy-MM-dd HH:mm:ss'), 'Jan', 	23,    'SELECT 1 FROM DUAL');
 insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query) values (false, 890, 		2, '3', 	PARSEDATETIME('2018-12-04 03:28:06', 'yyyy-MM-dd HH:mm:ss'), 'Jan', 	24,    'SELECT 1 FROM DUAL');
 insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query) values (false, 350, 		2, '3', 	PARSEDATETIME('2018-12-04 03:28:04', 'yyyy-MM-dd HH:mm:ss'), 'Jan', 	25,    'SELECT 1 FROM DUAL');
@@ -43,6 +43,21 @@ insert into sql_event(analysis_required, duration, server_id, thread_id, time, u
 insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query) values (false, 180, 		3, '22', 	PARSEDATETIME('2017-04-09 04:24:04', 'yyyy-MM-dd HH:mm:ss'), 'Pawel', 	38,    'SELECT 1 FROM DUAL');
 insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query) values (false, 320, 		3, '8', 	PARSEDATETIME('2017-04-09 04:24:06', 'yyyy-MM-dd HH:mm:ss'), 'Pawel', 	39,    'SELECT 1 FROM DUAL');
 insert into sql_event(analysis_required, duration, server_id, thread_id, time, user_id, id, sql_query) values (true, 320, 		3, '8', 	PARSEDATETIME('2018-04-09 03:25:06', 'yyyy-MM-dd HH:mm:ss'), 'Adam', 	40,    'SELECT 1 FROM DUAL');
+
+insert into comment(id, event_id, content) values (41, 21, 'this is a comment 1');
+insert into comment(id, event_id, content) values (42, 21, 'this is a comment 2');
+insert into comment(id, event_id, content) values (43, 22, 'this is a comment 3');
+insert into comment(id, event_id, content) values (44, 22, 'this is a comment 4');
+insert into comment(id, event_id, content) values (45, 22, 'this is a comment 5');
+
+insert into follower(id, comment_id, user_id) values (46, 41, 'adam');
+insert into follower(id, comment_id, user_id) values (47, 41, 'adam');
+insert into follower(id, comment_id, user_id) values (48, 42, 'adam');
+insert into follower(id, comment_id, user_id) values (49, 43, 'adam');
+insert into follower(id, comment_id, user_id) values (50, 43, 'adam');
+insert into follower(id, comment_id, user_id) values (51, 43, 'adam');
+insert into follower(id, comment_id, user_id) values (52, 44, 'adam');
+insert into follower(id, comment_id, user_id) values (53, 44, 'bartek');
 commit;
 
 

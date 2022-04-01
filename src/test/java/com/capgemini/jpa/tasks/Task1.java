@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.springframework.test.context.transaction.TestTransaction;
 
 import javax.persistence.EntityNotFoundException;
@@ -75,9 +76,9 @@ class Task1 {
 
         // when
         serverRepository.deleteById(server.getId());
-        TestTransaction.end();
+        // TestTransaction.end();
 
         // then
-        assertThrows( EntityNotFoundException.class, () -> serverRepository.getById(server.getId()));
+        assertThrows( JpaObjectRetrievalFailureException.class, () -> serverRepository.getById(server.getId()));
     }
 }

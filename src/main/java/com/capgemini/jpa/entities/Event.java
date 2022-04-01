@@ -3,18 +3,9 @@ package com.capgemini.jpa.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -38,11 +29,16 @@ public abstract class Event {
     @Column(length = 30)
     private String userId;
 
+    @Column(length = 100)
+    private String description;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SERVER_ID", nullable = false)
     private Server server;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Comment> comments;
+
     @Column
     private boolean analysisRequired;
-
 }

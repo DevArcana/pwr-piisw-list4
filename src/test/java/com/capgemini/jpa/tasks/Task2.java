@@ -75,7 +75,7 @@ class Task2 {
         Page<Event> result = eventRepository.findByTimeBetweenAndAnalysisRequiredIs(start, end, toBeAnalyzed, PageRequest.of(page, pageSize, sort));
 
         // then
-        assertThat(result.getTotalElements(), is(0));
+        assertThat(result.getTotalElements(), is(0L));
         assertThat(result.getContent(), hasSize(0));
     }
 }

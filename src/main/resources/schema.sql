@@ -19,6 +19,7 @@ create table exception_event
     occurance_class   varchar(255),
     occurance_line    integer,
     occurance_method  varchar(255),
+    description       varchar(100),
     primary key (id)
 );
 create table request_event
@@ -31,6 +32,7 @@ create table request_event
     user_id           varchar(30),
     server_id         integer      not null,
     method            varchar(255) not null,
+    description       varchar(100),
     primary key (id)
 );
 create table server
@@ -52,6 +54,21 @@ create table sql_event
     user_id           varchar(30),
     server_id         integer       not null,
     sql_query         varchar(4000) not null,
+    description       varchar(100),
+    primary key (id)
+);
+create table comment
+(
+    id                integer       not null,
+    event_id          integer       not null,
+    content           varchar(30),
+    primary key (id)
+);
+create table follower
+(
+    id                integer       not null,
+    comment_id        integer       not null,
+    user_id           varchar(30),
     primary key (id)
 );
 alter table exception_event
